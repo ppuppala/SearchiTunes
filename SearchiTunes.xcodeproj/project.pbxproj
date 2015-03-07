@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270BC2E21AAAB6B2004D881E /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BC2E11AAAB6B2004D881E /* APIController.swift */; };
 		278569771AA9746C00A26152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278569761AA9746C00A26152 /* AppDelegate.swift */; };
-		278569791AA9746C00A26152 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278569781AA9746C00A26152 /* ViewController.swift */; };
+		278569791AA9746C00A26152 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278569781AA9746C00A26152 /* SearchResultsViewController.swift */; };
 		2785697C1AA9746C00A26152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2785697A1AA9746C00A26152 /* Main.storyboard */; };
 		2785697E1AA9746C00A26152 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2785697D1AA9746C00A26152 /* Images.xcassets */; };
 		278569811AA9746C00A26152 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2785697F1AA9746C00A26152 /* LaunchScreen.xib */; };
@@ -26,10 +27,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		270BC2E11AAAB6B2004D881E /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIController.swift; path = ../APIController.swift; sourceTree = "<group>"; };
 		278569711AA9746C00A26152 /* SearchiTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchiTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		278569751AA9746C00A26152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		278569761AA9746C00A26152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		278569781AA9746C00A26152 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		278569781AA9746C00A26152 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		2785697B1AA9746C00A26152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2785697D1AA9746C00A26152 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		278569801AA9746C00A26152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -77,8 +79,9 @@
 		278569731AA9746C00A26152 /* SearchiTunes */ = {
 			isa = PBXGroup;
 			children = (
+				270BC2E11AAAB6B2004D881E /* APIController.swift */,
 				278569761AA9746C00A26152 /* AppDelegate.swift */,
-				278569781AA9746C00A26152 /* ViewController.swift */,
+				278569781AA9746C00A26152 /* SearchResultsViewController.swift */,
 				2785697A1AA9746C00A26152 /* Main.storyboard */,
 				2785697D1AA9746C00A26152 /* Images.xcassets */,
 				2785697F1AA9746C00A26152 /* LaunchScreen.xib */,
@@ -212,8 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				278569791AA9746C00A26152 /* ViewController.swift in Sources */,
+				278569791AA9746C00A26152 /* SearchResultsViewController.swift in Sources */,
 				278569771AA9746C00A26152 /* AppDelegate.swift in Sources */,
+				270BC2E21AAAB6B2004D881E /* APIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +409,7 @@
 				278569921AA9746C00A26152 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		278569931AA9746C00A26152 /* Build configuration list for PBXNativeTarget "SearchiTunesTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				278569951AA9746C00A26152 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

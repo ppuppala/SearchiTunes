@@ -1,64 +1,24 @@
 //
-//  ViewController.swift
+//  APIController.swift
 //  SearchiTunes
 //
-//  Created by Praneet Puppala on 3/5/15.
+//  Created by Praneet Puppala on 3/6/15.
 //  Copyright (c) 2015 Praneet Puppala. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+protocol APIControllerProtocol {
+    func didReceiveAPIResults(results : NSDictionary)
+}
 
-    @IBOutlet weak var appsTableView: UITableView!
-    var tableData = []
+class APIController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        searchITunesFor("Microsoft")
-    }
+    var delegate : APIControllerProtocol?
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableData.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let myCell : UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyExCell")
+    init() {}
         
-        // Get specific result row
-        let rowData = self.tableData[indexPath.row] as NSDictionary
-        
-        myCell.textLabel?.text = rowData["trackName"] as? String
-        myCell.detailTextLabel?.text = rowData["formattedPrice"] as? String
-        
-        // Fancy: get thumbnail for app by getting the artworkURL60 key to get an image URL
-        let imgURLString = rowData["artworkUrl60"] as NSString
-        let imgURL = NSURL(string: imgURLString)
-        
-        // Load data from URL as NSData
-        let imgData = NSData(contentsOfURL: imgURL!)
-        
-        myCell.imageView?.image = UIImage(data: imgData!)
-        
-        // myCell.textLabel?.text = "Praneet's Row #\(indexPath.row+1)"
-        // myCell.detailTextLabel?.text = "Subtitle #\(indexPath.row + 2)"
-        
-        return myCell
-    }
-    
-    
-    
     //------------------------------------USER DEFINED API REQUEST--------------------------------------------------------
-    
-    
     
     func searchITunesFor(searchTerm: String) {
         // Replace spaces with + signs to meet iTunes API requirements
@@ -93,20 +53,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 
                 // Set our table to this data
-                let results : NSArray = jsonResult["results"] as NSArray
-                
-                // Task runs in bg, so before we update the UI, we need to get back into fg
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tableData = results
-                    self.appsTableView!.reloadData()
-                })
-                
+                //let results : NSArray = jsonResult["results"] as NSArray
+                self.delegate?.didReceiveAPIResults(jsonResult)
             })
             
             // With closure and task now defined, we actually need to tell task to start
             task.resume()
         }
     }
-    
 }
-
